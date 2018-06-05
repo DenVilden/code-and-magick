@@ -4,16 +4,16 @@ var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
-var CLOUD_COLOR = '#fff';
-var CLOUD_SHADOW = 'rgba(0, 0, 0, 0.7)';
+var COLOR_WHITE = '#fff';
+var COLOR_GRAY = 'rgba(0, 0, 0, 0.7)';
+var COLOR_RED = 'rgba(255, 0, 0, 1)';
+var COLOR_BLACK = '#000';
 var GAP = 10;
 var TEXT_HEIGHT = 90;
-var TEXT_COLOR = '#000';
 var TEXT_FONT = '16px PT Mono';
 var BAR_WIDTH = 40;
 var BAR_GAP = 50;
 var MAX_BAR_HEIGHT = 150;
-var PLAYERS_BAR_COLOR = 'rgba(255, 0, 0, 1)';
 var BAR_MARGIN_LEFT = (BAR_WIDTH + BAR_GAP);
 var CLOUD_PADDING_TOP = MAX_BAR_HEIGHT + TEXT_HEIGHT;
 
@@ -31,11 +31,8 @@ var getMaxElement = function (arr) {
 
 // Получение случайного цвета
 var getRandomColor = function () {
-  var r = 0;
-  var g = 0;
-  var b = 255;
-  var a = Math.random();
-  return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+  var a = Math.random() * (1 - 0.1) + 0.1;
+  return 'rgba(0, 0, 255, ' + a + ')';
 };
 
 // Генерация облако результатов
@@ -46,11 +43,7 @@ var renderCloud = function (ctx, x, y, color) {
 
 // Генерация столбика результатов
 var renderBar = function (ctx, name, x, y) {
-  if (name === 'Вы') {
-    ctx.fillStyle = PLAYERS_BAR_COLOR;
-  } else {
-    ctx.fillStyle = getRandomColor();
-  }
+  ctx.fillStyle = (name === 'Вы') ? COLOR_RED : getRandomColor();
   ctx.fillRect(CLOUD_X + x, (CLOUD_PADDING_TOP + GAP) - y, BAR_WIDTH, y);
 };
 
@@ -60,8 +53,8 @@ var renderTime = function (ctx, time, x, y) {
 };
 
 // Генерация имен игроков
-var renderNames = function (ctx, name, x) {
-  ctx.fillStyle = TEXT_COLOR;
+var renderName = function (ctx, name, x) {
+  ctx.fillStyle = COLOR_BLACK;
   ctx.fillText(name, CLOUD_X + x, CLOUD_Y + CLOUD_HEIGHT - GAP * 2);
 };
 
@@ -78,13 +71,13 @@ window.renderStatistics = function (ctx, names, times) {
   var maxTime = getMaxElement(times);
 
   // Отрисовывает тень облака
-  renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, CLOUD_SHADOW);
+  renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, COLOR_GRAY);
 
   // Отрисовывает облако
-  renderCloud(ctx, CLOUD_X, CLOUD_Y, CLOUD_COLOR);
+  renderCloud(ctx, CLOUD_X, CLOUD_Y, COLOR_WHITE);
 
   // Отрисовывает текст список результатов
-  renderText(ctx, TEXT_FONT, TEXT_COLOR);
+  renderText(ctx, TEXT_FONT, COLOR_BLACK);
 
   // Гистограмма
   for (var i = 0; i < names.length; i++) {
@@ -98,6 +91,6 @@ window.renderStatistics = function (ctx, names, times) {
     renderBar(ctx, names[i], barWidth, barHeight);
 
     // Имена игроков
-    renderNames(ctx, names[i], barWidth);
+    renderName(ctx, names[i], barWidth);
   }
 };
