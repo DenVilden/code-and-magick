@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Denis Tolmachev](https://up.htmlacademy.ru/javascript/14/user/492351).
-* Наставник: `Неизвестно`.
+* Наставник: [Александр Кравчук](https://up.htmlacademy.ru/javascript/14/user/807447).
 
 ---
 
