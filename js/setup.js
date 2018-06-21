@@ -65,48 +65,45 @@ var openPopup = function () {
   setup.classList.remove('hidden');
   document.addEventListener('keydown', onPopupEscPress);
 };
-
-// Показывает окно настроек
-var closePopup = function () {
-  setup.classList.add('hidden');
-  document.removeEventListener('keydown', onPopupEscPress);
-};
-
-setupOpen.addEventListener('click', function () {
-  openPopup();
-});
-
+setupOpen.addEventListener('click', openPopup);
 setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
   }
 });
 
-setupClose.addEventListener('click', function () {
-  closePopup();
-});
-
+// Показывает окно настроек
+var closePopup = function () {
+  setup.classList.add('hidden');
+  document.removeEventListener('keydown', onPopupEscPress);
+};
+setupClose.addEventListener('click', closePopup);
 setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     closePopup();
   }
 });
 
-// Генерирует случайный цвет волшебника
-var wizardColor = function () {
+// Генерирует цвет мантии
+var wizardCoat = function () {
   var coat = getRandomItem(WIZARD_COAT_COLOR);
-  var eyes = getRandomItem(WIZARD_EYES_COLOR);
-  var fireball = getRandomItem(WIZARD_FIREBALL_COLOR);
-
   setupWizard.querySelector('.wizard-coat').style.fill = coat;
-  setupWizard.querySelector('.wizard-eyes').style.fill = eyes;
-  setup.querySelector('.setup-fireball-wrap').style.background = fireball;
-
   setup.querySelector('input[name=coat-color]').value = coat;
+};
+setupWizard.querySelector('.wizard-coat').addEventListener('click', wizardCoat);
+
+// Генерирует цвет глаз
+var wizardEyes = function () {
+  var eyes = getRandomItem(WIZARD_EYES_COLOR);
+  setupWizard.querySelector('.wizard-eyes').style.fill = eyes;
   setup.querySelector('input[name=eyes-color]').value = eyes;
+};
+setupWizard.querySelector('.wizard-eyes').addEventListener('click', wizardEyes);
+
+// Генерирует цвет фаербола
+var wizardFireball = function () {
+  var fireball = getRandomItem(WIZARD_FIREBALL_COLOR);
+  setup.querySelector('.setup-fireball-wrap').style.background = fireball;
   setup.querySelector('input[name=fireball-color]').value = fireball;
 };
-
-setupWizard.addEventListener('click', function () {
-  wizardColor();
-});
+setup.querySelector('.setup-fireball-wrap').addEventListener('click', wizardFireball);
