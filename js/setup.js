@@ -33,10 +33,10 @@ function createWizard() {
 }
 
 // Рисует волшебника
-function renderWizard(obj) {
-  similarWizardTemplate.querySelector('.setup-similar-label').textContent = obj.name;
-  similarWizardTemplate.querySelector('.wizard-coat').style.fill = obj.coatColor;
-  similarWizardTemplate.querySelector('.wizard-eyes').style.fill = obj.eyesColor;
+function renderWizard(arr) {
+  similarWizardTemplate.querySelector('.setup-similar-label').textContent = arr.name;
+  similarWizardTemplate.querySelector('.wizard-coat').style.fill = arr.coatColor;
+  similarWizardTemplate.querySelector('.wizard-eyes').style.fill = arr.eyesColor;
 
   return similarWizardTemplate.cloneNode(true);
 }
@@ -44,10 +44,9 @@ function renderWizard(obj) {
 // Собирает волшебников в массив и отрисовывает в DOM
 function cloneWizard() {
   for (var i = 0; i < 4; i++) {
-    createWizard();
     wizards.push(createWizard());
-    var clone = wizards[i];
-    fragment.appendChild(renderWizard(clone));
+    var clone = renderWizard(wizards[i]);
+    fragment.appendChild(clone);
   }
   similarListElement.appendChild(fragment);
   setup.querySelector('.setup-similar').classList.remove('hidden');
