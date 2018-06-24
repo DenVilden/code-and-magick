@@ -18,31 +18,31 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .querySelector('.setup-similar-item');
 
 // Генерирует случаный элемент массива
-var getRandomItem = function (arr) {
+function getRandomItem(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
-};
+}
 
 // Создает объект волшебника
-var createWizard = function () {
+function createWizard() {
   var wizardProperty = {
     name: getRandomItem(WIZARD_FIRST_NAME) + ' ' + getRandomItem(WIZARD_LAST_NAME),
     coatColor: getRandomItem(WIZARD_COAT_COLOR),
     eyesColor: getRandomItem(WIZARD_EYES_COLOR)
   };
   return wizardProperty;
-};
+}
 
 // Рисует волшебника
-var renderWizard = function (obj) {
+function renderWizard(obj) {
   similarWizardTemplate.querySelector('.setup-similar-label').textContent = obj.name;
   similarWizardTemplate.querySelector('.wizard-coat').style.fill = obj.coatColor;
   similarWizardTemplate.querySelector('.wizard-eyes').style.fill = obj.eyesColor;
 
   return similarWizardTemplate.cloneNode(true);
-};
+}
 
 // Собирает волшебников в массив и отрисовывает в DOM
-var cloneWizard = function () {
+function cloneWizard() {
   for (var i = 0; i < 4; i++) {
     createWizard();
     wizards.push(createWizard());
@@ -51,30 +51,30 @@ var cloneWizard = function () {
   }
   similarListElement.appendChild(fragment);
   setup.querySelector('.setup-similar').classList.remove('hidden');
-};
+}
 cloneWizard();
 
 
 // Генерирует цвет мантии
-var wizardCoat = function () {
+function drawCoat() {
   var coat = getRandomItem(WIZARD_COAT_COLOR);
   setupWizard.querySelector('.wizard-coat').style.fill = coat;
   setup.querySelector('input[name=coat-color]').value = coat;
-};
-setupWizard.querySelector('.wizard-coat').addEventListener('click', wizardCoat);
+}
+setupWizard.querySelector('.wizard-coat').addEventListener('click', drawCoat);
 
 // Генерирует цвет глаз
-var wizardEyes = function () {
+function drawEyes() {
   var eyes = getRandomItem(WIZARD_EYES_COLOR);
   setupWizard.querySelector('.wizard-eyes').style.fill = eyes;
   setup.querySelector('input[name=eyes-color]').value = eyes;
-};
-setupWizard.querySelector('.wizard-eyes').addEventListener('click', wizardEyes);
+}
+setupWizard.querySelector('.wizard-eyes').addEventListener('click', drawEyes);
 
 // Генерирует цвет фаербола
-var wizardFireball = function () {
+function drawFireball() {
   var fireball = getRandomItem(WIZARD_FIREBALL_COLOR);
   setup.querySelector('.setup-fireball-wrap').style.background = fireball;
   setup.querySelector('input[name=fireball-color]').value = fireball;
-};
-setup.querySelector('.setup-fireball-wrap').addEventListener('click', wizardFireball);
+}
+setup.querySelector('.setup-fireball-wrap').addEventListener('click', drawFireball);

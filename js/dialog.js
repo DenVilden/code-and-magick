@@ -8,17 +8,17 @@ var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
 
 // Проверка на нажатие ESC
-var onPopupEscPress = function (evt) {
+function onPopupEscPress(evt) {
   if (evt.keyCode === ESC_KEYCODE) {
     closePopup();
   }
-};
+}
 
 // Прячет окно настроек
-var openPopup = function () {
+function openPopup() {
   setup.classList.remove('hidden');
   document.addEventListener('keydown', onPopupEscPress);
-};
+}
 setupOpen.addEventListener('click', openPopup);
 setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
@@ -27,11 +27,11 @@ setupOpen.addEventListener('keydown', function (evt) {
 });
 
 // Показывает окно настроек
-var closePopup = function () {
+function closePopup() {
   setup.removeAttribute('style');
   setup.classList.add('hidden');
   document.removeEventListener('keydown', onPopupEscPress);
-};
+}
 setupClose.addEventListener('click', closePopup);
 setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
@@ -54,7 +54,7 @@ setupClose.addEventListener('keydown', function (evt) {
 
     var dragged = false;
 
-    var onMouseMove = function (moveEvt) {
+    function onMouseMove(moveEvt) {
       moveEvt.preventDefault();
       dragged = true;
 
@@ -71,9 +71,9 @@ setupClose.addEventListener('keydown', function (evt) {
       setup.style.top = (setup.offsetTop - shift.y) + 'px';
       setup.style.left = (setup.offsetLeft - shift.x) + 'px';
 
-    };
+    }
 
-    var onMouseUp = function (upEvt) {
+    function onMouseUp(upEvt) {
       upEvt.preventDefault();
 
       document.removeEventListener('mousemove', onMouseMove);
@@ -86,7 +86,7 @@ setupClose.addEventListener('keydown', function (evt) {
         };
         dialogHandler.addEventListener('click', onClickPreventDefault);
       }
-    };
+    }
 
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
