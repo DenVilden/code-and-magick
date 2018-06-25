@@ -3,9 +3,8 @@
 var WIZARD_FIREBALL_COLOR = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
 var setup = document.querySelector('.setup');
-var setupWizard = setup.querySelector('.setup-wizard');
-var coat = setupWizard.querySelector('.wizard-coat');
-var eyes = setupWizard.querySelector('.wizard-eyes');
+var coat = setup.querySelector('.wizard-coat');
+var eyes = setup.querySelector('.wizard-eyes');
 var fireball = setup.querySelector('.setup-fireball-wrap');
 
 // Цвет мантии

@@ -10,7 +10,6 @@ var wizards = [];
 
 var fragment = document.createDocumentFragment();
 var setup = document.querySelector('.setup');
-var similarListElement = setup.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content
     .querySelector('.setup-similar-item');
@@ -41,7 +40,7 @@ function cloneWizard() {
     var clone = renderWizard(wizards[i]);
     fragment.appendChild(clone);
   }
-  similarListElement.appendChild(fragment);
+  setup.querySelector('.setup-similar-list').appendChild(fragment);
 }
 cloneWizard();
 
