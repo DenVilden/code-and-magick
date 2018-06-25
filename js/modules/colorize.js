@@ -2,10 +2,6 @@
 
 (function () {
 
-  window.getRandomItem = function (arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-  };
-
   window.colorize = function (element, arr) {
     element.addEventListener('click', function () {
       var color = window.getRandomItem(arr);
