@@ -1,49 +1,39 @@
 'use strict';
 
-var ESC_KEYCODE = 27;
-var ENTER_KEYCODE = 13;
-
-var setup = document.querySelector('.setup');
-var setupOpen = document.querySelector('.setup-open');
-var setupClose = setup.querySelector('.setup-close');
-
-// Проверка на нажатие ESC
-function onPopupEscPress(evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
-    closePopup();
-  }
-}
-
-// Прячет окно настроек
-function openPopup() {
-  setup.classList.remove('hidden');
-  document.addEventListener('keydown', onPopupEscPress);
-}
-setupOpen.addEventListener('click', openPopup);
-setupOpen.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
-    openPopup();
-  }
-});
-
-// Показывает окно настроек
-function closePopup() {
-  setup.removeAttribute('style');
-  setup.classList.add('hidden');
-  document.removeEventListener('keydown', onPopupEscPress);
-}
-setupClose.addEventListener('click', closePopup);
-setupClose.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
-    closePopup();
-  }
-});
-
-// Добавляет перетаскивание окна настроек
 (function () {
 
-  var dialogHandler = setup.querySelector('.upload');
+  var setup = document.querySelector('.setup');
+  var setupOpen = document.querySelector('.setup-open');
+  var setupClose = setup.querySelector('.setup-close');
+  var dialogHandler = setup.querySelector('.setup-title');
 
+  // Проверка на нажатие ESC
+  function onPopupEscPress(evt) {
+    window.util.isEscEvent(evt, closePopup);
+  }
+
+  // Показывает окно настроек
+  function openPopup() {
+    setup.classList.remove('hidden');
+    document.addEventListener('keydown', onPopupEscPress);
+  }
+  setupOpen.addEventListener('click', openPopup);
+  setupOpen.addEventListener('keydown', function (evt) {
+    window.util.isEnterEvent(evt, openPopup);
+  });
+
+  // Прячет окно настроек
+  function closePopup() {
+    setup.removeAttribute('style');
+    setup.classList.add('hidden');
+    document.removeEventListener('keydown', onPopupEscPress);
+  }
+  setupClose.addEventListener('click', closePopup);
+  setupClose.addEventListener('keydown', function (evt) {
+    window.util.isEnterEvent(evt, closePopup);
+  });
+
+  // Добавляет перетаскивание окна настроек
   dialogHandler.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 
@@ -70,7 +60,6 @@ setupClose.addEventListener('keydown', function (evt) {
 
       setup.style.top = (setup.offsetTop - shift.y) + 'px';
       setup.style.left = (setup.offsetLeft - shift.x) + 'px';
-
     }
 
     function onMouseUp(upEvt) {
