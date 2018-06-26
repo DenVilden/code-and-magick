@@ -18,9 +18,9 @@
   // Создает объект волшебника
   function createWizard() {
     var wizardProperty = {
-      name: window.getRandomItem(WIZARD_FIRST_NAME) + ' ' + window.getRandomItem(WIZARD_LAST_NAME),
-      coatColor: window.getRandomItem(WIZARD_COAT_COLOR),
-      eyesColor: window.getRandomItem(WIZARD_EYES_COLOR)
+      name: window.random.getRandomItem(WIZARD_FIRST_NAME) + ' ' + window.random.getRandomItem(WIZARD_LAST_NAME),
+      coatColor: window.random.getRandomItem(WIZARD_COAT_COLOR),
+      eyesColor: window.random.getRandomItem(WIZARD_EYES_COLOR)
     };
     return wizardProperty;
   }

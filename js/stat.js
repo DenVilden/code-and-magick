@@ -27,7 +27,7 @@
 
   // Генерация столбика результатов
   function renderBar(ctx, name, x, y) {
-    ctx.fillStyle = (name === 'Вы') ? COLOR_RED : window.getRandomColor();
+    ctx.fillStyle = (name === 'Вы') ? COLOR_RED : window.random.getRandomColor();
     ctx.fillRect(CLOUD_X + x, (CLOUD_PADDING_TOP + GAP) - y, BAR_WIDTH, y);
   }
 
@@ -52,7 +52,7 @@
   }
 
   window.renderStatistics = function (ctx, names, times) {
-    var maxTime = window.getMaxElement(times);
+    var maxTime = window.random.getMaxElement(times);
 
     // Отрисовывает тень облака
     renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, COLOR_GRAY);
