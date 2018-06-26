@@ -1,24 +1,30 @@
 'use strict';
 
-var WIZARD_FIREBALL_COLOR = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+(function () {
 
-var setup = document.querySelector('.setup');
-var coat = setup.querySelector('.wizard-coat');
-var eyes = setup.querySelector('.wizard-eyes');
-var fireball = setup.querySelector('.setup-fireball-wrap');
+  var WIZARD_FIREBALL_COLOR = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+  var WIZARD_COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+  var WIZARD_EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
 
-// Цвет мантии
-window.colorize(coat, window.WIZARD_COAT_COLOR);
+  var setup = document.querySelector('.setup');
+  var coat = setup.querySelector('.wizard-coat');
+  var eyes = setup.querySelector('.wizard-eyes');
+  var fireball = setup.querySelector('.setup-fireball-wrap');
 
-// Цвет глаз
-window.colorize(eyes, window.WIZARD_EYES_COLOR);
+  // Цвет мантии
+  window.colorize(coat, WIZARD_COAT_COLOR);
 
-// Цвет фаербола
-window.colorize(fireball, WIZARD_FIREBALL_COLOR);
+  // Цвет глаз
+  window.colorize(eyes, WIZARD_EYES_COLOR);
 
-// Подставляет цвета элеметов волшебника в форму
-setup.querySelector('.setup-submit').addEventListener('click', function () {
-  setup.querySelector('input[name=coat-color]').value = coat.style.fill;
-  setup.querySelector('input[name=eyes-color]').value = eyes.style.fill;
-  setup.querySelector('input[name=fireball-color]').value = fireball.style.backgroundColor;
-});
+  // Цвет фаербола
+  window.colorize(fireball, WIZARD_FIREBALL_COLOR);
+
+  // Подставляет цвета элеметов волшебника в форму
+  setup.querySelector('.setup-submit').addEventListener('click', function () {
+    setup.querySelector('input[name=coat-color]').value = coat.style.fill;
+    setup.querySelector('input[name=eyes-color]').value = eyes.style.fill;
+    setup.querySelector('input[name=fireball-color]').value = fireball.style.backgroundColor;
+  });
+
+})();
