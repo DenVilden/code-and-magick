@@ -5,7 +5,7 @@
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
-  var dialogHandler = setup.querySelector('.setup-title');
+  var dialogHandler = setup.querySelector('.upload');
 
   // Проверка на нажатие ESC
   function onPopupEscPress(evt) {

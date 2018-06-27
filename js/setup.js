@@ -25,7 +25,6 @@
     setup.querySelector('.setup-similar').classList.remove('hidden');
   }
 
-  // При ошибке
   function errorHandler(errorMessage) {
     var node = document.createElement('div');
 
