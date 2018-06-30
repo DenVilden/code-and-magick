@@ -1,7 +1,6 @@
 'use strict';
 
 (function () {
-
   var CLOUD_WIDTH = 420;
   var CLOUD_HEIGHT = 270;
   var CLOUD_X = 100;
@@ -16,7 +15,7 @@
   var BAR_WIDTH = 40;
   var BAR_GAP = 50;
   var MAX_BAR_HEIGHT = 150;
-  var BAR_MARGIN_LEFT = (BAR_WIDTH + BAR_GAP);
+  var BAR_MARGIN_LEFT = BAR_WIDTH + BAR_GAP;
   var CLOUD_PADDING_TOP = MAX_BAR_HEIGHT + TEXT_HEIGHT;
 
   // Генерация облако результатов
@@ -27,13 +26,13 @@
 
   // Генерация столбика результатов
   function renderBar(ctx, name, x, y) {
-    ctx.fillStyle = (name === 'Вы') ? COLOR_RED : window.random.getRandomColor();
-    ctx.fillRect(CLOUD_X + x, (CLOUD_PADDING_TOP + GAP) - y, BAR_WIDTH, y);
+    ctx.fillStyle = name === 'Вы' ? COLOR_RED : window.random.getRandomColor();
+    ctx.fillRect(CLOUD_X + x, CLOUD_PADDING_TOP + GAP - y, BAR_WIDTH, y);
   }
 
   // Генерация времени в секундах
   function renderTime(ctx, time, x, y) {
-    ctx.fillText(Math.round(time), CLOUD_X + x, (CLOUD_PADDING_TOP - GAP) - y);
+    ctx.fillText(Math.round(time), CLOUD_X + x, CLOUD_PADDING_TOP - GAP - y);
   }
 
   // Генерация имен игроков
@@ -66,7 +65,7 @@
     // Гистограмма
     for (var i = 0; i < names.length; i++) {
       var barWidth = BAR_GAP + BAR_MARGIN_LEFT * i;
-      var barHeight = MAX_BAR_HEIGHT * times[i] / maxTime;
+      var barHeight = (MAX_BAR_HEIGHT * times[i]) / maxTime;
 
       // Время в секундах
       renderTime(ctx, times[i], barWidth, barHeight);
@@ -78,5 +77,4 @@
       renderName(ctx, names[i], barWidth);
     }
   };
-
 })();

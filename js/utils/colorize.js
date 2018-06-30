@@ -14,5 +14,4 @@
       setup.querySelector('input[name=' + name + '-color]').value = color;
     });
   };
-
 })();

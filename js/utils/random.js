@@ -1,7 +1,6 @@
 'use strict';
 
 window.random = (function () {
-
   return {
     getRandomColor: function () {
       var a = Math.random() * (1 - 0.1) + 0.1;
@@ -23,5 +22,4 @@ window.random = (function () {
       return arr[Math.floor(Math.random() * arr.length)];
     }
   };
-
 })();

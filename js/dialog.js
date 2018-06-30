@@ -1,7 +1,6 @@
 'use strict';
 
 (function () {
-
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
@@ -58,8 +57,8 @@
         y: moveEvt.clientY
       };
 
-      setup.style.top = (setup.offsetTop - shift.y) + 'px';
-      setup.style.left = (setup.offsetLeft - shift.x) + 'px';
+      setup.style.top = setup.offsetTop - shift.y + 'px';
+      setup.style.left = setup.offsetLeft - shift.x + 'px';
     }
 
     function onMouseUp(upEvt) {

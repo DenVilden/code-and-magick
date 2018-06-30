@@ -1,15 +1,18 @@
 'use strict';
 
 (function () {
-
   var setup = document.querySelector('.setup');
-  var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
+  var similarWizardTemplate = document.querySelector('#similar-wizard-template')
+    .content;
 
   // Рисует волшебника
   function renderWizard(arr) {
-    similarWizardTemplate.querySelector('.setup-similar-label').textContent = arr.name;
-    similarWizardTemplate.querySelector('.wizard-coat').style.fill = arr.colorCoat;
-    similarWizardTemplate.querySelector('.wizard-eyes').style.fill = arr.colorEyes;
+    similarWizardTemplate.querySelector('.setup-similar-label').textContent =
+      arr.name;
+    similarWizardTemplate.querySelector('.wizard-coat').style.fill =
+      arr.colorCoat;
+    similarWizardTemplate.querySelector('.wizard-eyes').style.fill =
+      arr.colorEyes;
 
     return similarWizardTemplate.cloneNode(true);
   }
@@ -28,7 +31,8 @@
   function errorHandler(errorMessage) {
     var node = document.createElement('div');
 
-    node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
+    node.style =
+      'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
     node.style.position = 'absolute';
     node.style.left = 0;
     node.style.right = 0;
@@ -39,5 +43,4 @@
   }
 
   window.load(successHandler, errorHandler);
-
 })();
