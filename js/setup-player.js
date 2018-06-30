@@ -42,7 +42,7 @@
       document.body.insertAdjacentElement('afterbegin', node);
     }
 
-    window.save(form, successHandler, errorHandler);
+    window.save(successHandler, errorHandler, form);
   });
 
 })();
