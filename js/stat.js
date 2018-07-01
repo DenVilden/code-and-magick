@@ -26,30 +26,58 @@
   var BAR_MARGIN_LEFT = BAR.width + BAR.gap;
   var CLOUD_PADDING_TOP = BAR.maxHeight + TEXT.height;
 
-  // Генерация облако результатов
+  /**
+   * Генерация облака результатов
+   * @param  {[type]} ctx
+   * @param  {[type]} x
+   * @param  {[type]} y
+   * @param  {[type]} color
+   */
   function renderCloud(ctx, x, y, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, CLOUD.width, CLOUD.height);
   }
 
-  // Генерация столбика результатов
+  /**
+   * Генерация столбика результатов
+   * @param  {[type]} ctx
+   * @param  {[type]} name
+   * @param  {[type]} x
+   * @param  {[type]} y
+   */
   function renderBar(ctx, name, x, y) {
     ctx.fillStyle = name === 'Вы' ? COLOR.red : window.random.getRandomColor();
     ctx.fillRect(CLOUD.x + x, CLOUD_PADDING_TOP + GAP - y, BAR.width, y);
   }
 
-  // Генерация времени в секундах
+  /**
+   * Генерация времени в секундах
+   * @param  {[type]} ctx
+   * @param  {[type]} time
+   * @param  {[type]} x
+   * @param  {[type]} y
+   */
   function renderTime(ctx, time, x, y) {
     ctx.fillText(Math.round(time), CLOUD.x + x, CLOUD_PADDING_TOP - GAP - y);
   }
 
-  // Генерация имен игроков
+  /**
+   * Генерация имен игроков
+   * @param  {[type]} ctx
+   * @param  {[type]} name
+   * @param  {[type]} x
+   */
   function renderName(ctx, name, x) {
     ctx.fillStyle = COLOR.black;
     ctx.fillText(name, CLOUD.x + x, CLOUD.y + CLOUD.height - GAP * 2);
   }
 
-  // Генерация текста список результатов
+  /**
+   * Генерация текста список результатов
+   * @param  {[type]} ctx
+   * @param  {[type]} font
+   * @param  {[type]} color
+   */
   function renderText(ctx, font, color) {
     ctx.font = font;
     ctx.fillStyle = color;
@@ -58,6 +86,12 @@
     ctx.fillText('Список результатов:', CLOUD.x + GAP * 2, CLOUD.y + GAP * 4);
   }
 
+  /**
+   * Отрисовывает стастику
+   * @param  {[type]} ctx
+   * @param  {[type]} names
+   * @param  {[type]} times
+   */
   window.renderStatistics = function (ctx, names, times) {
     var maxTime = window.random.getMaxElement(times);
 

@@ -5,7 +5,11 @@
   var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content;
 
-  // Рисует волшебника
+  /**
+   * Рисует волшебника
+   * @param  {[type]} arr
+   * @return {[type]}
+   */
   function renderWizard(arr) {
     similarWizardTemplate.querySelector('.setup-similar-label').textContent =
       arr.name;
@@ -17,7 +21,10 @@
     return similarWizardTemplate.cloneNode(true);
   }
 
-  // Получает волшебников с сервера
+  /**
+   * Получает волшебников с сервера
+   * @param  {[type]} wizards
+   */
   function successHandler(wizards) {
     var fragment = document.createDocumentFragment();
 
@@ -28,6 +35,10 @@
     setup.querySelector('.setup-similar').classList.remove('hidden');
   }
 
+  /**
+   * При ошибке
+   * @param  {[type]} errorMessage
+   */
   function errorHandler(errorMessage) {
     var node = document.createElement('div');
 

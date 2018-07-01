@@ -33,7 +33,11 @@
   // Цвет фаербола
   window.colorize(fireball, 'fireball', WIZARD_FIREBALL_COLOR);
 
-  // Форма отправки волшебника
+  /**
+   * Форма отправки волшебника
+   * @param  {[type]} evt
+   * @return {[type]}
+   */
   form.addEventListener('submit', function (evt) {
     evt.preventDefault();
 
