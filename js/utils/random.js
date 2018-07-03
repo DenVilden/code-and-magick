@@ -18,7 +18,7 @@ window.random = (function () {
       return maxElement;
     },
 
-    getRandomItem: function (arr) {
+    getRandomElement: function (arr) {
       return arr[Math.floor(Math.random() * arr.length)];
     }
   };

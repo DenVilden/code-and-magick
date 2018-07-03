@@ -2,9 +2,7 @@
 
 (function () {
   // Получение запроса
-  window.load = function (onSuccess, onError) {
-    var URL = 'https://js.dump.academy/code-and-magick/data';
-
+  window.load = function (URL, onSuccess, onError) {
     window.ajax.getResponse(onSuccess, onError, 'GET', URL);
   };
 
