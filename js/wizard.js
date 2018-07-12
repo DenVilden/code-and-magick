@@ -39,6 +39,5 @@
   wizardFireball.addEventListener('click', function () {
     var newColor = window.random.getRandomElement(WIZARD_FIREBALL_COLOR);
     wizardFireball.style.backgroundColor = newColor;
-    window.wizard.onFireballChange(newColor);
   });
 })();

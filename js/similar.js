@@ -3,19 +3,15 @@
 (function () {
   var coatColor;
   var eyesColor;
-  var fireballColor;
   var wizards = [];
 
   function getRank(wizard) {
     var rank = 0;
 
     if (wizard.colorCoat === coatColor) {
-      rank += 3;
-    }
-    if (wizard.colorEyes === eyesColor) {
       rank += 2;
     }
-    if (wizard.colorFireball === fireballColor) {
+    if (wizard.colorEyes === eyesColor) {
       rank += 1;
     }
 
@@ -41,11 +37,6 @@
 
   window.wizard.onEyesChange = window.debounce(function (color) {
     eyesColor = color;
-    updateWizards();
-  });
-
-  window.wizard.onFireballChange = window.debounce(function (color) {
-    fireballColor = color;
     updateWizards();
   });
 
