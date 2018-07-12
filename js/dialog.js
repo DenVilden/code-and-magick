@@ -32,11 +32,7 @@
     window.util.isEnterEvent(evt, closePopup);
   });
 
-  /**
-   * Добавляет перетаскивание окна настроек
-   * @param  {[type]} evt
-   * @return {[type]}
-   */
+  // Добавляет перетаскивание окна настроек
   dialogHandler.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 

@@ -5,6 +5,7 @@
   var eyesColor;
   var wizards = [];
 
+  // Пристваивает баллы частям волшебника
   function getRank(wizard) {
     var rank = 0;
 
@@ -18,6 +19,7 @@
     return rank;
   }
 
+  // Показывает похожих волшебников
   var updateWizards = function () {
     window.render(
         wizards.slice().sort(function (left, right) {
@@ -40,19 +42,13 @@
     updateWizards();
   });
 
-  /**
-   * Получает волшебников с сервера
-   * @param  {[type]} data
-   */
+  // Получает волшебников с сервера
   function successHandler(data) {
     wizards = data;
     updateWizards();
   }
 
-  /**
-   * При ошибке
-   * @param  {[type]} errorMessage
-   */
+  // При ошибке
   function errorHandler(errorMessage) {
     var node = document.createElement('div');
 
@@ -67,6 +63,5 @@
     document.body.insertAdjacentElement('afterbegin', node);
   }
 
-  var URL = 'https://js.dump.academy/code-and-magick/data';
-  window.load(URL, successHandler, errorHandler);
+  window.load(successHandler, errorHandler);
 })();

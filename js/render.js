@@ -7,11 +7,7 @@
   var similar = setup.querySelector('.setup-similar');
   var similarList = setup.querySelector('.setup-similar-list');
 
-  /**
-   * Рисует волшебника
-   * @param  {[type]} arr
-   * @return {[type]}
-   */
+  // Рисует волшебника
   function renderWizard(arr) {
     similarWizardTemplate.querySelector('.setup-similar-label').textContent =
       arr.name;
@@ -23,10 +19,7 @@
     return similarWizardTemplate.cloneNode(true);
   }
 
-  /**
-   * Получает волшебников с сервера
-   * @param  {[type]} data
-   */
+  // Получает волшебников с сервера
   window.render = function (data) {
     var value = data.length > 4 ? 4 : data.length;
     similarList.textContent = '';
