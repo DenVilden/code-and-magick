@@ -4,7 +4,6 @@
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
-  var dialogHandler = setup.querySelector('.upload');
 
   // Проверка на нажатие ESC
   function onPopupEscPress(evt) {
@@ -33,7 +32,7 @@
   });
 
   // Добавляет перетаскивание окна настроек
-  dialogHandler.addEventListener('mousedown', function (evt) {
+  setup.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 
     var startCoords = {
@@ -70,9 +69,9 @@
       if (dragged) {
         var onClickPreventDefault = function () {
           evt.preventDefault();
-          dialogHandler.removeEventListener('click', onClickPreventDefault);
+          setup.removeEventListener('click', onClickPreventDefault);
         };
-        dialogHandler.addEventListener('click', onClickPreventDefault);
+        setup.addEventListener('click', onClickPreventDefault);
       }
     }
 
