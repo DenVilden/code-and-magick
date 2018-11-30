@@ -1,4 +1,4 @@
-# Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
+# Учебный проект «Код и Магия» [![Build Status](https://travis-ci.org/DenVilden/code-and-magick.svg?branch=master)](https://travis-ci.org/DenVilden/code-and-magick)
 
 * Студент: [Denis Tolmachev](https://up.htmlacademy.ru/javascript/14/user/492351).
 * Наставник: [Александр Кравчук](https://up.htmlacademy.ru/javascript/14/user/807447).
