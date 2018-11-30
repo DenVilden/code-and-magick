@@ -1,6 +1,6 @@
 'use strict';
 
-(function () {
+(function() {
   var CLOUD = {
     width: 420,
     height: 270,
@@ -59,7 +59,7 @@
   }
 
   // Отрисовывает стастику
-  window.renderStatistics = function (ctx, names, times) {
+  window.renderStatistics = function(ctx, names, times) {
     var maxTime = window.random.getMaxElement(times);
 
     // Отрисовывает тень облака

@@ -1,6 +1,6 @@
 'use strict';
 
-(function () {
+(function() {
   var setup = document.querySelector('.setup');
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
@@ -16,7 +16,7 @@
     document.addEventListener('keydown', onPopupEscPress);
   }
   setupOpen.addEventListener('click', openPopup);
-  setupOpen.addEventListener('keydown', function (evt) {
+  setupOpen.addEventListener('keydown', function(evt) {
     window.util.isEnterEvent(evt, openPopup);
   });
 
@@ -27,12 +27,12 @@
     document.removeEventListener('keydown', onPopupEscPress);
   }
   setupClose.addEventListener('click', closePopup);
-  setupClose.addEventListener('keydown', function (evt) {
+  setupClose.addEventListener('keydown', function(evt) {
     window.util.isEnterEvent(evt, closePopup);
   });
 
   // Добавляет перетаскивание окна настроек
-  setup.addEventListener('mousedown', function (evt) {
+  setup.addEventListener('mousedown', function(evt) {
     evt.preventDefault();
 
     var startCoords = {
@@ -67,7 +67,7 @@
       document.removeEventListener('mouseup', onMouseUp);
 
       if (dragged) {
-        var onClickPreventDefault = function () {
+        var onClickPreventDefault = function() {
           evt.preventDefault();
           setup.removeEventListener('click', onClickPreventDefault);
         };

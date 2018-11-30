@@ -1,6 +1,6 @@
 'use strict';
 
-(function () {
+(function() {
   var setup = document.querySelector('.setup');
   var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content;
@@ -20,7 +20,7 @@
   }
 
   // Получает волшебников с сервера
-  window.render = function (data) {
+  window.render = function(data) {
     var value = data.length > 4 ? 4 : data.length;
     similarList.textContent = '';
     for (var i = 0; i < value; i++) {

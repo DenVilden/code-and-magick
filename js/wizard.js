@@ -1,6 +1,6 @@
 'use strict';
 
-(function () {
+(function() {
   var WIZARD_EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
   var WIZARD_COAT_COLOR = [
     'rgb(101, 137, 164)',
@@ -20,7 +20,7 @@
 
   // Цвет мантии
   var wizardCoat = document.querySelector('.wizard-coat');
-  wizardCoat.addEventListener('click', function () {
+  wizardCoat.addEventListener('click', function() {
     var newColor = window.random.getRandomElement(WIZARD_COAT_COLOR);
     wizardCoat.style.fill = newColor;
     window.wizard.onCoatChange(newColor);
@@ -28,7 +28,7 @@
 
   // Цвет глаз
   var wizardEyes = document.querySelector('.wizard-eyes');
-  wizardEyes.addEventListener('click', function () {
+  wizardEyes.addEventListener('click', function() {
     var newColor = window.random.getRandomElement(WIZARD_EYES_COLOR);
     wizardEyes.style.fill = newColor;
     window.wizard.onEyesChange(newColor);
@@ -36,7 +36,7 @@
 
   // Цвет фаербола
   var wizardFireball = document.querySelector('.setup-fireball-wrap');
-  wizardFireball.addEventListener('click', function () {
+  wizardFireball.addEventListener('click', function() {
     var newColor = window.random.getRandomElement(WIZARD_FIREBALL_COLOR);
     wizardFireball.style.backgroundColor = newColor;
   });
